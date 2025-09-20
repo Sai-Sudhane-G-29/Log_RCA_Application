@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "mitra-log-rca"
+version = "0.1.0"
+description = "Worker package with Celery, Redis broker, and FastAPI for log analysis"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+packages = [
+    {include = "log_application"}
+]
+repository = "https://github.com/yourusername/mitra-log-rca"
+keywords = ["celery", "redis", "fastapi", "worker", "log-analysis"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.104.1"
+uvicorn = "^0.23.2"
+celery = "^5.3.4"
+redis = "^5.0.1"
+pydantic = "^2.4.2"
+python-dotenv = "^1.0.0"
+mitra-ai-foundation = {path = "../mitra_ai_foundation", develop = true}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+mitra-log-worker = "worker.main:main"
+mitra-log-api = "api.main:main"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/yourusername/mitra-log-rca/issues"
+"Documentation" = "https://github.com/yourusername/mitra-log-rca#readme"
