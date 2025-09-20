@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry]
+name = "mitra-ai-foundation"
+version = "0.2"
+description = "Foundation components for MITRA applications"
+authors = ["sai.sudhaneg@it-mitra.com"]
+packages = [{ include = "mitra_ai_foundation" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.104.1"
+uvicorn = "^0.23.2"
+celery = "^5.3.4"
+redis = "^5.0.1"
+pydantic = "^2.4.2"
+python-dotenv = "^1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"

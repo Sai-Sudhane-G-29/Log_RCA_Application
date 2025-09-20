@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "mitra-log-worker"
+version = "0.1.0"
+description = "Celery worker for log analysis tasks"
+authors = ["Your Name <your.email@example.com>"]
+packages = [
+    {include = "worker"}
+]
+repository = "https://github.com/yourusername/mitra-log-rca"
+keywords = ["celery", "redis", "worker", "log-analysis"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+celery = "^5.3.4"
+redis = "^5.0.1"
+pydantic = "^2.4.2"
+python-dotenv = "^1.0.0"
+mitra-ai-foundation = {path = "../../mitra_ai_foundation", develop = true}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+mitra-log-worker = "worker.main:main"

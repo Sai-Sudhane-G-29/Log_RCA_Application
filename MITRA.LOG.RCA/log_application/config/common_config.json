@@ -1,0 +1,17 @@
+{
+  "app_name": "MITRA.LOG.RCA",
+  "environment": "development",
+  "redis": {
+    "host": "localhost",
+    "port": 6379,
+    "db": 0,
+    "password": null,
+    "ssl": false
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file_path": null
+  },
+  "debug": true
+}
