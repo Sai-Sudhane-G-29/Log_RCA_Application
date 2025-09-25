@@ -1,0 +1,55 @@
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: batch_processing
+      POSTGRES_USER: batch_user
+      POSTGRES_PASSWORD: batch_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - batch-network
+    restart: unless-stopped
+
+  # Redis for job queue
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - batch-network
+    restart: unless-stopped
+
+  # Batch Processing Engine
+  batch-processor:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://batch_user:batch_password@postgres:5432/batch_processing
+      - REDIS_URL=redis://redis:6379/0
+      - DEBUG=false
+      - SPARK_MASTER=local[*]
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./logs:/app/logs
+      - batch_data:/var/log/batch_processing
+    networks:
+      - batch-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  batch_data:
+
+networks:
+  batch-network:
+    driver: bridge
