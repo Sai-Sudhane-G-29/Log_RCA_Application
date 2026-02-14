@@ -1,10 +1,7 @@
 """
 Task type enumerations for log application.
 """
-from mitra_ai_foundation.common.enum.task_types import BaseTaskType
-
-
-class LogTaskType(BaseTaskType):
+class LogTaskType:
     """
     Enumeration of log application task types.
     

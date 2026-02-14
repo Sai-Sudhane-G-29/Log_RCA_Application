@@ -295,7 +295,7 @@ zookeeper = ["kazoo (>=2.8.0)"]
 
 [[package]]
 name = "mitra-ai-foundation"
-version = "0.2"
+version = "0.3.7"
 description = "Foundation components for MITRA applications"
 optional = false
 python-versions = "^3.12"
@@ -313,7 +313,7 @@ uvicorn = "^0.23.2"
 
 [package.source]
 type = "directory"
-url = "../../mitra_ai_foundation"
+url = "../../../mitra_ai_foundation"
 
 [[package]]
 name = "packaging"
@@ -707,4 +707,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
-content-hash = "8b163b880710c90614e0d6b26220f70bf4e23be8e598ca718515f04a2fe93158"
+content-hash = "c92be44cdbbb87175dcba74b4e89da356b4b5f13dc44d6372fd75a0183a682fe"

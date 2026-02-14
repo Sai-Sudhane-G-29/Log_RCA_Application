@@ -5,7 +5,7 @@ from fastapi import APIRouter, HTTPException
 from typing import Optional
 
 from mitra_ai_foundation.api.services.task_service import send_task_to_celery
-from log_application.api.models.schemas import LogAnalysisRequest, ErrorAnalysisRequest
+from api.models.schemas import LogAnalysisRequest, ErrorAnalysisRequest
 from mitra_ai_foundation.api.models.schemas import TaskResponse
 from common.enum.task_types import LogTaskType
 
